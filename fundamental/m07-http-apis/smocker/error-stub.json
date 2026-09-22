@@ -1,0 +1,15 @@
+[
+  {
+    "request": {
+      "method": "GET",
+      "path": "/error.bin"
+    },
+    "response": {
+      "status": 503,
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": "{\"message\":\"Servicio temporalmente no disponible\"}"
+    }
+  }
+]

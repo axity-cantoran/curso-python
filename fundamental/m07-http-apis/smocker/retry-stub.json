@@ -1,0 +1,31 @@
+[
+  {
+    "request": {
+      "method": "GET",
+      "path": "/reintento.bin"
+    },
+    "response": {
+      "status": 503,
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": "{\"message\":\"Servicio temporalmente no disponible\"}"
+    },
+    "context": {
+      "template": "response"
+    }
+  },
+  {
+    "request": {
+      "method": "GET",
+      "path": "/reintento.bin"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream"
+      },
+      "body": "Descarga exitosa despues del reintento.\n"
+    }
+  }
+]

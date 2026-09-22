@@ -1,0 +1,15 @@
+[
+  {
+    "request": {
+      "method": "GET",
+      "path": "/archivo.bin"
+    },
+    "response": {
+      "status": 200,
+      "headers": {
+        "Content-Type": "application/octet-stream"
+      },
+      "body": "Contenido de prueba para descarga por streaming.\n"
+    }
+  }
+]

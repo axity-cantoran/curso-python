@@ -1,0 +1,36 @@
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Poetry
+        run: pipx install poetry
+
+      - name: Install dependencies
+        run: poetry install
+
+      - name: Run tests and coverage
+        run: poetry run pytest --cov=src --cov-report=term-missing --cov-fail-under=80
+
+      - name: Run mypy
+        run: poetry run mypy src
+
+      - name: Run Ruff
+        run: poetry run ruff check src
+
+      - name: Check Black
+        run: poetry run black --check src

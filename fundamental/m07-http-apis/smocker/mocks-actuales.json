@@ -1,0 +1,89 @@
+[
+    {
+        "request": {
+            "path": {
+                "matcher": "ShouldEqual",
+                "value": "/reintento.bin"
+            },
+            "method": {
+                "matcher": "ShouldEqual",
+                "value": "GET"
+            }
+        },
+        "response": {
+            "body": "Descarga exitosa despues del reintento.\n",
+            "status": 200,
+            "delay": {},
+            "headers": {
+                "Content-Type": [
+                    "application/octet-stream"
+                ]
+            }
+        },
+        "context": {},
+        "state": {
+            "id": "PwQf3ZXvRz",
+            "times_count": 2,
+            "locked": false,
+            "creation_date": "2026-09-21T05:17:56.918404391Z"
+        }
+    },
+    {
+        "request": {
+            "path": {
+                "matcher": "ShouldEqual",
+                "value": "/reintento.bin"
+            },
+            "method": {
+                "matcher": "ShouldEqual",
+                "value": "GET"
+            }
+        },
+        "response": {
+            "body": "{\"message\":\"Servicio temporalmente no disponible\"}",
+            "status": 503,
+            "delay": {},
+            "headers": {
+                "Content-Type": [
+                    "application/json"
+                ]
+            }
+        },
+        "context": {},
+        "state": {
+            "id": "EwQBqWuDg",
+            "times_count": 0,
+            "locked": false,
+            "creation_date": "2026-09-21T05:17:56.91839526Z"
+        }
+    },
+    {
+        "request": {
+            "path": {
+                "matcher": "ShouldEqual",
+                "value": "/archivo.bin"
+            },
+            "method": {
+                "matcher": "ShouldEqual",
+                "value": "GET"
+            }
+        },
+        "response": {
+            "body": "Contenido de prueba para descarga por streaming.\n",
+            "status": 200,
+            "delay": {},
+            "headers": {
+                "Content-Type": [
+                    "application/octet-stream"
+                ]
+            }
+        },
+        "context": {},
+        "state": {
+            "id": "L-dhqZXDg",
+            "times_count": 2,
+            "locked": false,
+            "creation_date": "2026-09-21T05:14:24.757789706Z"
+        }
+    }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "nombre": "Ana",
+    "correo": "ana@example.com",
+    "rol": "admin",
+    "activo": true
+  },
+  {
+    "nombre": "Luis",
+    "correo": "correo-invalido",
+    "rol": "editor",
+    "activo": true
+  },
+  {
+    "nombre": "Marta",
+    "correo": "marta@example.com",
+    "rol": "admin",
+    "activo": false
+  },
+  {
+    "nombre": "Carlos",
+    "correo": "carlos@example.com",
+    "rol": "editor",
+    "activo": true
+  }
+]
