@@ -30,3 +30,6 @@ descargas/
 .env
 .env.*
 !.env.example
+
+# Archivo temporal del módulo intermedio 04
+perfil.txt
