@@ -18,7 +18,7 @@ repos:
         args:
           - --strict
           - --explicit-package-bases
-        files: ^intermedio/m03-fastapi/
+        files: ^intermedio/m05-solid/
         types: [python]
         additional_dependencies:
           - fastapi
