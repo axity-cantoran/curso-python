@@ -15,16 +15,39 @@ repos:
     rev: v1.15.0
     hooks:
       - id: mypy
+        name: mypy-modulos-generales
         args:
           - --strict
           - --explicit-package-bases
-        files: ^intermedio/m05-solid/
+        files: ^(fundamental|intermedio/m0[1-7]-)/
         types: [python]
         additional_dependencies:
-          - fastapi
-          - sqlalchemy
-          - pydantic
           - pytest
+          - hypothesis
+          - sqlalchemy
+          - alembic
+          - fastapi
+          - pydantic
           - httpx
           - types-python-jose
           - types-passlib
+
+  - repo: local
+    hooks:
+      - id: mypy-m08-ciencia-datos
+        name: mypy m08-ciencia-datos
+        entry: mypy
+        language: python
+        files: ^intermedio/m08-ciencia-datos/
+        types: [python]
+        args:
+          - --config-file=intermedio/m08-ciencia-datos/pyproject.toml
+          - --strict
+          - --explicit-package-bases
+        additional_dependencies:
+          - mypy==1.15.0
+          - joblib
+          - scipy
+          - scikit-learn==1.5.2
+          - pandas
+          - pandas-stubs
