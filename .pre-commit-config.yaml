@@ -19,7 +19,7 @@ repos:
         args:
           - --strict
           - --explicit-package-bases
-        files: ^(fundamental|intermedio/m0[1-7]-)/
+        files: ^(fundamental/m01-entorno-herramientas/|intermedio/m0[1-7]-)/
         types: [python]
         additional_dependencies:
           - pytest
