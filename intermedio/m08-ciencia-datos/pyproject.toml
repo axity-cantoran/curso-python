@@ -1,0 +1,39 @@
+[project]
+name = "m08-ciencia-datos"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Tu nombre", email = "tu@email.com"}
+]
+requires-python = ">=3.12"
+dependencies = [
+    "numpy",
+    "pandas",
+    "polars",
+    "scikit-learn==1.5.2",
+    "joblib"
+]
+
+[tool.poetry]
+package-mode = false
+
+[tool.poetry.group.dev.dependencies]
+pandas-stubs = "*"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+
+[[tool.mypy.overrides]]
+module = [
+    "sklearn",
+    "sklearn.*",
+    "joblib",
+    "scipy",
+    "scipy.*",
+]
+ignore_missing_imports = true
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
