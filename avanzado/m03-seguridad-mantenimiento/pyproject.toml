@@ -1,0 +1,31 @@
+[project]
+name = "m03-seguridad-mantenimiento"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "axity-cantoran",email = "oscar.cantoran@axity.com"}
+]
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "pydantic-settings (>=2.15.0,<3.0.0)"
+]
+
+
+[tool.poetry]
+package-mode = false
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "pip-audit (>=2.10.1,<3.0.0)",
+    "safety (>=3.8.1,<4.0.0)",
+    "black (>=26.5.1,<27.0.0)",
+    "isort (>=9.0.1,<10.0.0)",
+    "ruff (>=0.16.9,<0.17.0)",
+    "pre-commit (>=4.6.2,<5.0.0)",
+    "mypy (>=2.3.1,<3.0.0)"
+]
