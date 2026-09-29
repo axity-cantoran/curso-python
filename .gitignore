@@ -33,3 +33,10 @@ descargas/
 
 # Archivo temporal del módulo intermedio 04
 perfil.txt
+
+# Entorno virtual temporal para validar la wheel
+.venv-wheel-test/
+
+# Artefactos de distribución de Python
+dist/
+*.egg-info/
