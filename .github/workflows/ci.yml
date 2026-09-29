@@ -62,14 +62,43 @@ jobs:
           if-no-files-found: error
 
   docker:
-    name: Docker build
+    name: Docker build and publish
     runs-on: ubuntu-latest
     needs: quality
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build Docker image
-        working-directory: avanzado/m04-empaquetado-cicd
-        run: docker build -t orders-api:ci .
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ghcr.io/${{ github.repository_owner }}/orders-api
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=sha
+            type=raw,value=latest,enable={{is_default_branch}}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v6
+        with:
+          context: avanzado/m04-empaquetado-cicd
+          file: avanzado/m04-empaquetado-cicd/Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
