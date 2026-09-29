@@ -1,0 +1,45 @@
+[project]
+name = "orders-api"
+version = "0.1.0"
+description = "API de órdenes empaquetable y contenerizada"
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+]
+
+[project.scripts]
+orders-api = "orders_api.main:app"
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+explicit_package_bases = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = [
+    "pytest (>=9.1.1,<10.0.0)",
+    "httpx (>=0.28.1,<0.29.0)",
+    "ruff (>=0.16.9,<0.17.0)",
+    "mypy (>=2.3.1,<3.0.0)",
+    "black (>=26.5.1,<27.0.0)"
+]
