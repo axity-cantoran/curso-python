@@ -30,29 +30,35 @@ jobs:
           python -m pip install poetry
 
       - name: Configure Poetry
+        working-directory: avanzado/m04-empaquetado-cicd
         run: |
           poetry config virtualenvs.in-project true
 
       - name: Install dependencies
+        working-directory: avanzado/m04-empaquetado-cicd
         run: poetry install
 
       - name: Run lint
+        working-directory: avanzado/m04-empaquetado-cicd
         run: poetry run ruff check .
 
       - name: Run type-check
+        working-directory: avanzado/m04-empaquetado-cicd
         run: poetry run mypy src
 
       - name: Run tests
+        working-directory: avanzado/m04-empaquetado-cicd
         run: poetry run pytest
 
       - name: Build package
+        working-directory: avanzado/m04-empaquetado-cicd
         run: poetry build
 
       - name: Upload package artifacts
         uses: actions/upload-artifact@v4
         with:
           name: orders-api-distributions
-          path: dist/
+          path: avanzado/m04-empaquetado-cicd/dist/
           if-no-files-found: error
 
   docker:
@@ -65,4 +71,5 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Docker image
+        working-directory: avanzado/m04-empaquetado-cicd
         run: docker build -t orders-api:ci .
