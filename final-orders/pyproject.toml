@@ -1,0 +1,58 @@
+[project]
+name = "final-orders"
+version = "0.1.0"
+description = "Servicio de órdenes para una tienda de figuras de acción"
+authors = [
+    { name = "Curso Python" }
+]
+requires-python = ">=3.12,<4.0"
+dependencies = [
+    "fastapi>=0.115.0,<1.0.0",
+    "uvicorn[standard]>=0.30.0,<1.0.0",
+    "pydantic-settings>=2.6.0,<3.0.0",
+    "sqlalchemy>=2.0.36,<3.0.0",
+    "alembic>=1.14.0,<2.0.0"
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.3,<10.0.0",
+    "httpx>=0.27.0,<1.0.0",
+    "ruff>=0.8.0,<1.0.0",
+    "mypy>=1.13.0,<2.0.0",
+    "pytest-cov>=6.0.0,<7.0.0",
+    "pip-audit>=2.7.0,<3.0.0"
+]
+
+[tool.poetry]
+packages = [
+    { include = "orders_api", from = "src" }
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"src/orders_api/api/dependencies.py" = ["B008"]
+"src/orders_api/api/routes.py" = ["B008"]
+
+[tool.mypy]
+python_version = "3.12"
+mypy_path = "src"
+explicit_package_bases = true
+strict = true
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0"]
+build-backend = "poetry.core.masonry.api"

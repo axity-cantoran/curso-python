@@ -40,3 +40,16 @@ perfil.txt
 # Artefactos de distribución de Python
 dist/
 *.egg-info/
+
+# Proyecto final
+final-orders/.venv/
+final-orders/.env
+final-orders/.env.*
+!final-orders/.env.example
+final-orders/*.db
+final-orders/__pycache__/
+final-orders/.pytest_cache/
+final-orders/.ruff_cache/
+final-orders/.mypy_cache/
+final-orders/htmlcov/
+final-orders/.coverage
