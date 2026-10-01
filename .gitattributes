@@ -1,0 +1,17 @@
+# Mantener scripts ejecutables con finales LF
+*.sh text eol=lf
+
+# Archivos de código y configuración
+*.py text eol=lf
+*.toml text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+
+# Archivos binarios
+*.pdf binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.drawio binary

@@ -502,6 +502,15 @@ No se ejecuta como `root`.
 - **Pip-audit detectó una vulnerabilidad en pytest:** se actualizó a `pytest >=9.0.3,<10.0.0`.
 - **La wheel o la imagen utilizaban rutas incorrectas:** se configuró el directorio `final-orders` en las herramientas y el workflow.
 
+### Compatibilidad de finales de línea
+
+El archivo `docker-entrypoint.sh` debe conservar finales de línea `LF` para ejecutarse correctamente dentro de contenedores Linux.
+
+Como el desarrollo se realiza en Windows, se añadió `.gitattributes` para mantener el formato adecuado:
+
+```gitattributes
+*.sh text eol=lf
+
 ## Resultado
 
 El proyecto implementa un servicio funcional de órdenes con:
